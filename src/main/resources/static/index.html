@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/darkly/bootstrap.min.css" integrity="sha384-Bo21yfmmZuXwcN/9vKrA5jPUMhr7znVBBeLxT9MA4r2BchhusfJ6+n8TLGUcRAtL" crossorigin="anonymous">
+
+<!--
+    This page should contain:
+        - An input field
+        - A Greeting button which returns a string to the user if the user has put something in the input field
+        - A Reverse button that returns the input string but reversed
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Alicia's page</title>
+</head>
+
+<body>
+<div class="jumbotron container text-center col-lg-5 col-lg-offset-5">
+
+    <br>
+    <h1>Welcome to my simple page!</h1>
+    <br>
+    <form action="/reversed" method="get" onsubmit="return myFunction()">
+        <input type="text" class="form-control" placeholder="Write something.." id="userInput" name="input">
+        <br>
+        <button type="submit" class="btn btn-success">Reverse</button>
+    </form>
+    <br>
+    <form action="/greeting" onsubmit="return myFunction()">
+        <button type="submit" class="btn btn-primary">Greeting</button>
+    </form>
+
+</div>
+
+<script>
+    function myFunction() {
+        var input = document.getElementById("userInput").value;
+        if (input.length < 1) {
+            return false;
+        }
+
+        submitOK = true;
+    }
+</script>
+
+</body>
+</html>
+
