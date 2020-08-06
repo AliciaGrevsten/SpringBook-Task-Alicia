@@ -1,21 +1,24 @@
 package com.fullstackjavacourse.SpringBookTaskAlicia.controllers;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class ActionController {
 
     @GetMapping("/greeting")
     public String greeting() {
-        return "Hi there!";
+        return "Greeting";
     }
 
     @GetMapping("/reversed")
-    public String reversed(@RequestParam(name="input") String s) {
+    public String reversed(@RequestParam(name="input", required = false, defaultValue = "") String s, Model model) {
         StringBuilder string = new StringBuilder(s);
-        return string.reverse().toString();
+        String reversed = string.reverse().toString();
+        model.addAttribute("reversed", reversed);
+        return "Result";
     }
 }
